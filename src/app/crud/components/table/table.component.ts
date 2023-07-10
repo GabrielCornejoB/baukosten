@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'crud-read-page',
-  templateUrl: './read.component.html',
+  selector: 'crud-table',
+  templateUrl: './table.component.html',
   styles: [],
 })
-export class ReadComponent {
-  @Input() public title: string = '';
+export class TableComponent {
   @Input() public tableData: any[] = [];
   @Input() public tableColumns: string[] = [];
+
+  public readonly objectKeys = Object.keys;
 }

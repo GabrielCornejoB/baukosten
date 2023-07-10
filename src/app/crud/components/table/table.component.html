@@ -1,0 +1,15 @@
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th *ngFor="let header of tableColumns">{{ header | titlecase }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableData" class="hover">
+        <th *ngFor="let col of objectKeys(row)">{{ row[col] }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

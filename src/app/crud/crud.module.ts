@@ -7,6 +7,7 @@ import { ReadComponent } from './pages/read/read.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CrudRoutingModule } from './crud-routing.module';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CrudRoutingModule } from './crud-routing.module';
     ReadComponent,
     SidebarComponent,
     HeaderComponent,
+    TableComponent,
   ],
   imports: [CommonModule, CrudRoutingModule, RouterModule],
   exports: [ReadComponent],
