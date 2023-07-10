@@ -4,11 +4,21 @@
     <thead>
       <tr>
         <th *ngFor="let header of tableColumns">{{ header | titlecase }}</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of tableData" class="hover">
-        <th *ngFor="let col of objectKeys(row)">{{ row[col] }}</th>
+        <td *ngFor="let col of objectKeys(row)">{{ row[col] }}</td>
+        <td>
+          <button class="btn-ghost btn-xs btn">update</button>
+        </td>
+        <td>
+          <button class="btn-ghost btn-square btn-sm btn">
+            <span class="material-symbols-outlined"> delete </span>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
