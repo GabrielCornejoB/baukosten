@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './layout.component';
+import { ReadPageComponent } from './read-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
     children: [
       {
-        path: 'tests',
-        loadChildren: () =>
-          import('./modules/tests/tests.module').then((m) => m.TestsModule),
+        path: 'read',
+        component: ReadPageComponent,
       },
       {
         path: '**',
-        redirectTo: 'tests',
+        redirectTo: 'read',
       },
     ],
   },
@@ -24,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CrudRoutingModule {}
+export class TestsRoutingModule {}
