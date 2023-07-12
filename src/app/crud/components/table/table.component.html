@@ -3,7 +3,9 @@
     <!-- head -->
     <thead>
       <tr>
-        <th *ngFor="let header of keys; let i = index">{{ keys[i] }}</th>
+        <th class="first:w-24" *ngFor="let header of keys; let i = index">
+          {{ keys[i].toString() | columnTitleTransform }}
+        </th>
         <th class="w-32"></th>
         <th class="w-32"></th>
       </tr>
