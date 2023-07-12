@@ -6,15 +6,21 @@
         <th class="first:w-24" *ngFor="let header of keys; let i = index">
           {{ keys[i].toString() | columnTitleTransform }}
         </th>
-        <th class="w-32"></th>
-        <th class="w-32"></th>
+        <th *ngIf="hasDetailView" class="w-24"></th>
+        <th class="w-16"></th>
+        <th class="w-16"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of tableData" class="hover">
         <td *ngFor="let col of keys">{{ row[col] }}</td>
+        <td *ngIf="hasDetailView">
+          <button class="btn-ghost btn-xs btn">details</button>
+        </td>
         <td>
-          <button class="btn-ghost btn-xs btn">update</button>
+          <button class="btn-ghost btn-square btn-sm btn">
+            <span class="material-symbols-outlined"> edit </span>
+          </button>
         </td>
         <td>
           <button class="btn-ghost btn-square btn-sm btn">

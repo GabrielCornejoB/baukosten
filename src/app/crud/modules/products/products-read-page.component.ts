@@ -7,7 +7,7 @@ import { map } from 'rxjs';
   selector: 'products-read-page',
   template: `
     <crud-header title="Compound Products" />
-    <crud-table [tableData]="products" />
+    <crud-table [tableData]="products" [hasDetailView]="true" />
   `,
   styles: [],
 })

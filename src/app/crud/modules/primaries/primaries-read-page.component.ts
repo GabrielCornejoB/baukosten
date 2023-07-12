@@ -6,7 +6,7 @@ import { Primary } from './primary.interface';
   selector: 'primaries-read-page',
   template: `
     <crud-header title="Primary Supplies" />
-    <crud-table [tableData]="primaries" />
+    <crud-table [tableData]="primaries" [hasDetailView]="true" />
   `,
   styles: [],
 })
