@@ -1,16 +1,16 @@
 <div class="overflow-x-auto">
-  <table class="table">
+  <table *ngIf="keys != undefined" class="table">
     <!-- head -->
     <thead>
       <tr>
-        <th *ngFor="let header of tableColumns">{{ header | titlecase }}</th>
+        <th *ngFor="let header of keys; let i = index">{{ keys[i] }}</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of tableData" class="hover">
-        <td *ngFor="let col of objectKeys(row)">{{ row[col] }}</td>
+        <td *ngFor="let col of keys">{{ row[col] }}</td>
         <td>
           <button class="btn-ghost btn-xs btn">update</button>
         </td>

@@ -6,19 +6,17 @@ import { Classification } from './classification.interface';
   selector: 'classifications-read-page',
   template: `
     <crud-header title="Classifications" />
-    <crud-table [tableData]="classifications" [tableColumns]="keys" />
+    <crud-table [tableData]="classifications" />
   `,
 })
 export class ClassificationsReadPageComponent implements OnInit {
   private classificationsService = inject(ClassificationsService);
 
   public classifications: Classification[] = [];
-  public keys: string[] = [];
 
   ngOnInit(): void {
     this.classificationsService.getAll().subscribe((classifications) => {
       this.classifications = classifications;
-      this.keys = Object.keys(classifications[0]);
     });
   }
 }
