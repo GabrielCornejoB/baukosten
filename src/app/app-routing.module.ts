@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'crud',
+    pathMatch: 'full',
   },
 ];
 

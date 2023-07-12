@@ -9,11 +9,11 @@ import { NavItem } from '../../interfaces/nav-item.interface';
 export class SidebarComponent {
   private baseURL: string = '/crud/';
   public navItems: NavItem[] = [
-    {
-      iconName: 'home',
-      name: 'home',
-      link: `${this.baseURL}`,
-    },
+    // {
+    //   iconName: 'home',
+    //   name: 'home',
+    //   link: `${this.baseURL}`,
+    // },
     {
       iconName: 'format_list_bulleted',
       name: 'Primary Supplies',

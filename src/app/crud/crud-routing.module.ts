@@ -63,6 +63,7 @@ const routes: Routes = [
       {
         path: '**',
         redirectTo: 'tests',
+        pathMatch: 'full',
       },
     ],
   },
