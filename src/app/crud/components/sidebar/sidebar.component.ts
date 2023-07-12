@@ -42,7 +42,7 @@ export class SidebarComponent {
     {
       iconName: 'filter_alt',
       name: 'Classifications',
-      link: `${this.baseURL}clasifications`,
+      link: `${this.baseURL}classifications`,
     },
     {
       iconName: 'straighten',

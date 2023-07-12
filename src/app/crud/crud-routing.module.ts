@@ -49,10 +49,10 @@ const routes: Routes = [
       },
 
       {
-        path: 'clasifications',
+        path: 'classifications',
         loadChildren: () =>
-          import('./modules/clasifications/clasifications.module').then(
-            (m) => m.ClasificationsModule
+          import('./modules/classifications/classifications.module').then(
+            (m) => m.ClassificationsModule
           ),
       },
       {
