@@ -5,7 +5,7 @@ import { Primary } from './primary.interface';
 @Component({
   selector: 'primaries-read-page',
   template: `
-    <crud-header title="Primaries" />
+    <crud-header title="Primary Supplies" />
     <crud-table [tableData]="primaries" />
   `,
   styles: [],

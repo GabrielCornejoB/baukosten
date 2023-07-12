@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { CrudService } from '../../crud.service';
+import { HttpClient } from '@angular/common/http';
+import { Product } from './product.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ProductsService {
+export class ProductsService extends CrudService<Product> {
+  constructor(protected override http: HttpClient) {
+    super(http);
+  }
 
-  constructor() { }
+  override getResourceEndpoint(): string {
+    return 'products/';
+  }
 }
