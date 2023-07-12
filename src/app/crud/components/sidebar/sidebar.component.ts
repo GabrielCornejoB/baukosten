@@ -17,27 +17,27 @@ export class SidebarComponent {
     {
       iconName: 'format_list_bulleted',
       name: 'Primary Supplies',
-      link: `${this.baseURL}`,
+      link: `${this.baseURL}primaries`,
     },
     {
       iconName: 'blender',
       name: 'Compound Products',
-      link: `${this.baseURL}`,
+      link: `${this.baseURL}products`,
     },
     {
       iconName: 'savings',
       name: 'Budgets',
-      link: `${this.baseURL}`,
+      link: `${this.baseURL}budgets`,
     },
     {
       iconName: 'construction',
       name: 'Constructions',
-      link: `${this.baseURL}`,
+      link: `${this.baseURL}constructions`,
     },
     {
       iconName: 'add_business',
       name: 'Suppliers',
-      link: `${this.baseURL}`,
+      link: `${this.baseURL}suppliers`,
     },
     {
       iconName: 'filter_alt',
@@ -47,7 +47,7 @@ export class SidebarComponent {
     {
       iconName: 'straighten',
       name: 'Measurement Units',
-      link: `${this.baseURL}`,
+      link: `${this.baseURL}units`,
     },
   ];
 }
