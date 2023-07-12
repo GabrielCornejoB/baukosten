@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { PrimariesService } from './primaries.service';
+import { Primary } from './primary.interface';
 
 @Component({
-  selector: 'app-primaries-read-page',
+  selector: 'primaries-read-page',
   template: `
-    <p>
-      primaries-read-page works!
-    </p>
+    <crud-header title="Primaries" />
+    <crud-table [tableData]="primaries" />
   `,
-  styles: [
-  ]
+  styles: [],
 })
-export class PrimariesReadPageComponent {
+export class PrimariesReadPageComponent implements OnInit {
+  private primariesService = inject(PrimariesService);
 
+  public primaries: Primary[] = [];
+
+  ngOnInit(): void {
+    this.primariesService.getAll().subscribe((primaries) => {
+      this.primaries = primaries;
+    });
+  }
 }
