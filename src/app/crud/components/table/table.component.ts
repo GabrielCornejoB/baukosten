@@ -8,6 +8,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 export class TableComponent<TData extends {}> implements OnChanges {
   @Input() public tableData: TData[] = [];
   @Input() public hasDetailView: boolean = false;
+  @Input() public detailViewText: string = '';
 
   public keys?: Array<keyof TData>;
 

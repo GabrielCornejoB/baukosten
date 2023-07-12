@@ -15,7 +15,7 @@
       <tr *ngFor="let row of tableData" class="hover">
         <td *ngFor="let col of keys">{{ row[col] }}</td>
         <td *ngIf="hasDetailView">
-          <button class="btn-ghost btn-xs btn">details</button>
+          <button class="btn-ghost btn-xs btn">{{ detailViewText }}</button>
         </td>
         <td>
           <button class="btn-ghost btn-square btn-sm btn">
