@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export abstract class CrudService<TRead, TCreate, TUpdate> {
-  private http = inject(HttpClient);
+export abstract class CrudService<TRead /*, TCreate, TUpdate*/> {
+  private readonly APIUrl = `http://localhost:8000/api/${this.getResourceEndpoint()}`;
 
-  private readonly APIUrl = `localhost:3000/${this.getResourceEndpoint()}`;
-
-  constructor() {}
+  constructor(protected http: HttpClient) {}
 
   abstract getResourceEndpoint(): string;
 
-  // public getAll(): Observable<TRead[]>
+  public getAll(): Observable<TRead[]> {
+    return this.http.get<TRead[]>(`${this.APIUrl}`);
+  }
 
   // public getOne(id: string): Observable<TRead>
 

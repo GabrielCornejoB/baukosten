@@ -1,1 +1,4 @@
-export interface Clasification {}
+export interface Clasification {
+  id: number;
+  clasification: string;
+}

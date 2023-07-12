@@ -13,6 +13,13 @@ const routes: Routes = [
           import('./modules/tests/tests.module').then((m) => m.TestsModule),
       },
       {
+        path: 'clasifications',
+        loadChildren: () =>
+          import('./modules/clasifications/clasifications.module').then(
+            (m) => m.ClasificationsModule
+          ),
+      },
+      {
         path: '**',
         redirectTo: 'tests',
       },

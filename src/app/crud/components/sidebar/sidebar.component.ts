@@ -7,38 +7,47 @@ import { NavItem } from '../../interfaces/nav-item.interface';
   styles: [],
 })
 export class SidebarComponent {
+  private baseURL: string = '/crud/';
   public navItems: NavItem[] = [
     {
       iconName: 'home',
       name: 'home',
+      link: `${this.baseURL}`,
     },
     {
       iconName: 'format_list_bulleted',
       name: 'Primary Supplies',
+      link: `${this.baseURL}`,
     },
     {
       iconName: 'blender',
       name: 'Compound Products',
+      link: `${this.baseURL}`,
     },
     {
       iconName: 'savings',
       name: 'Budgets',
+      link: `${this.baseURL}`,
     },
     {
       iconName: 'construction',
       name: 'Constructions',
+      link: `${this.baseURL}`,
     },
     {
       iconName: 'add_business',
       name: 'Suppliers',
+      link: `${this.baseURL}`,
     },
     {
       iconName: 'filter_alt',
       name: 'Classifications',
+      link: `${this.baseURL}clasifications`,
     },
     {
       iconName: 'straighten',
       name: 'Measurement Units',
+      link: `${this.baseURL}`,
     },
   ];
 }

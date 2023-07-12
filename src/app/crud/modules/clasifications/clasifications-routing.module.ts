@@ -10,6 +10,10 @@ const routes: Routes = [
         path: 'read',
         component: ClasificationsReadPageComponent,
       },
+      {
+        path: '**',
+        redirectTo: 'read',
+      },
     ],
   },
 ];
