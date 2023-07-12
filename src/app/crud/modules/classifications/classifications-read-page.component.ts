@@ -5,11 +5,8 @@ import { Classification } from './classification.interface';
 @Component({
   selector: 'classifications-read-page',
   template: `
-    <crud-read-page
-      title="Classifications"
-      [tableData]="classifications"
-      [tableColumns]="keys"
-    />
+    <crud-header title="Classifications" />
+    <crud-table [tableData]="classifications" [tableColumns]="keys" />
   `,
 })
 export class ClassificationsReadPageComponent implements OnInit {
@@ -22,7 +19,6 @@ export class ClassificationsReadPageComponent implements OnInit {
     this.classificationsService.getAll().subscribe((classifications) => {
       this.classifications = classifications;
       this.keys = Object.keys(classifications[0]);
-      console.log(classifications);
     });
   }
 }
