@@ -23,17 +23,13 @@ export class PrimariesService extends CrudService<
     return 'primaries';
   }
 
-  override getListQueryParams(): string {
-    const expandedFields: string =
+  override getQueryParams(): string {
+    const commonExpandedFields: string =
       '?expand=unit, classification, default_primary_supplier.supplier';
-    const selectedFields: string =
+    const commonSelectedFields: string =
       'fields=id, primary, expand.unit.unit, expand.classification.classification, expand.default_primary_supplier.unit_price, expand.default_primary_supplier.expand.supplier.supplier';
 
-    return `${expandedFields}&${selectedFields}`;
-  }
-
-  override getViewEndpoint(): string {
-    return '?expand=unit';
+    return `${commonExpandedFields}&${commonSelectedFields}`;
   }
 
   getSuppliers(primaryId: string): Observable<PrimarySupplierResponse> {

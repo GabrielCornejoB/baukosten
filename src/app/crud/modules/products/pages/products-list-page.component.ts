@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ProductsService } from './products.service';
+import { ProductsService } from '../products.service';
 import { map } from 'rxjs';
-import { Product } from './product.interface';
+import { Product } from '../product.interface';
 
 @Component({
   selector: 'products-list-page',

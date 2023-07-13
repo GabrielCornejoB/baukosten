@@ -15,10 +15,7 @@ export class UnitsService extends CrudService<UnitResponse, Unit> {
     return 'units';
   }
 
-  override getListQueryParams(): string {
+  override getQueryParams(): string {
     return '?fields=id, unit';
-  }
-  override getViewEndpoint(): string {
-    return '';
   }
 }

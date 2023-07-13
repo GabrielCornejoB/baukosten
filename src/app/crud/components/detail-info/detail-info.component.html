@@ -1,0 +1,9 @@
+<div *ngIf="detailData" class="stats flex-wrap shadow">
+  <div *ngFor="let key of keys; let i = index" class="stat">
+    <div class="stat-title">{{ key.toString() | titleTransform }}</div>
+    <div *ngIf="i === 0" class="stat-value text-2xl">
+      {{ detailData[key] | uppercase | slice : 0 : 3 }}
+    </div>
+    <div *ngIf="i !== 0" class="stat-value text-2xl">{{ detailData[key] }}</div>
+  </div>
+</div>

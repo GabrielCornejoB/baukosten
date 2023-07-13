@@ -19,10 +19,7 @@ export class ClassificationsService extends CrudService<
   override getResource(): string {
     return 'classifications';
   }
-  override getListQueryParams(): string {
+  override getQueryParams(): string {
     return '?fields=id, classification';
-  }
-  override getViewEndpoint(): string {
-    return '';
   }
 }

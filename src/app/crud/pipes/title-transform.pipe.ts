@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'columnTitleTransform',
+  name: 'titleTransform',
 })
-export class ColumnTitleTransformPipe implements PipeTransform {
+export class TitleTransformPipe implements PipeTransform {
   transform(value: string): string {
     switch (value) {
       case 'id':

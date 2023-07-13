@@ -11,16 +11,15 @@ export abstract class CrudService<TData, TDatum /*, TCreate, TUpdate*/> {
   constructor(protected http: HttpClient) {}
 
   abstract getResource(): string;
-  abstract getListQueryParams(): string;
-  abstract getViewEndpoint(): string;
+  abstract getQueryParams(): string;
 
   public getAll(): Observable<TData> {
-    return this.http.get<TData>(`${this.APIUrl}${this.getListQueryParams()}`);
+    return this.http.get<TData>(`${this.APIUrl}${this.getQueryParams()}`);
   }
 
   public getOne(id: string): Observable<TDatum | undefined> {
     return this.http
-      .get<TDatum>(`${this.APIUrl}${id}${this.getViewEndpoint()}`)
+      .get<TDatum>(`${this.APIUrl}${id}${this.getQueryParams()}`)
       .pipe(catchError(() => of(undefined)));
   }
 

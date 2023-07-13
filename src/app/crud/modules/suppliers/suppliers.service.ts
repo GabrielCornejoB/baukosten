@@ -14,10 +14,7 @@ export class SuppliersService extends CrudService<SupplierResponse, Supplier> {
   override getResource(): string {
     return 'suppliers';
   }
-  override getListQueryParams(): string {
+  override getQueryParams(): string {
     return '?fields=id, supplier';
-  }
-  override getViewEndpoint(): string {
-    return '';
   }
 }

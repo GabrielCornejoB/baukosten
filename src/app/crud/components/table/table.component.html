@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th class="first:w-16" *ngFor="let header of keys; let i = index">
-          {{ keys[i].toString() | columnTitleTransform }}
+          {{ keys[i].toString() | titleTransform }}
         </th>
         <th *ngIf="hasDetailView" class="w-24"></th>
         <th class="w-16"></th>

@@ -17,10 +17,7 @@ export class ProductsService extends CrudService<
   override getResource(): string {
     return 'products';
   }
-  override getListQueryParams(): string {
+  override getQueryParams(): string {
     return '?expand=unit&fields=id, product, expand.unit.unit';
-  }
-  override getViewEndpoint(): string {
-    return '';
   }
 }
