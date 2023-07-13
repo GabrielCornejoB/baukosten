@@ -27,8 +27,6 @@ export class UnitsListPageComponent implements OnInit {
           }))
         )
       )
-      .subscribe((units) => {
-        this.units = units;
-      });
+      .subscribe((units) => (this.units = units));
   }
 }

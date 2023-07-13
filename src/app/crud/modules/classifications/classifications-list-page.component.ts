@@ -26,8 +26,6 @@ export class ClassificationsListPageComponent implements OnInit {
           }))
         )
       )
-      .subscribe((classifications) => {
-        this.classifications = classifications;
-      });
+      .subscribe((classifications) => (this.classifications = classifications));
   }
 }
