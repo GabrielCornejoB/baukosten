@@ -24,6 +24,10 @@ export class ColumnTitleTransformPipe implements PipeTransform {
         return 'Default Supplier';
       case 'default_price':
         return 'Unit Price';
+      case 'unit_price':
+        return "Primary's Unit Price";
+      case 'updated':
+        return 'Last Updated';
       default:
         return '';
     }

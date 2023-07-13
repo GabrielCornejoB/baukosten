@@ -2,10 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { PrimariesService } from '../primaries.service';
+import { PrimarySupplier } from '../interfaces/primary-supplier.interface';
 
 @Component({
   selector: 'primaries-detail-page',
-  template: ` <crud-header [title]="'Suppliers of ' + primary" />`,
+  template: ` <crud-header [title]="'Suppliers of ' + primary" />
+    <crud-table [tableData]="primarySuppliers" />`,
 })
 export class PrimariesDetailPageComponent implements OnInit {
   private aRoute = inject(ActivatedRoute);
@@ -13,6 +15,7 @@ export class PrimariesDetailPageComponent implements OnInit {
   private primariesService = inject(PrimariesService);
 
   public primary?: string;
+  public primarySuppliers: PrimarySupplier[] = [];
 
   ngOnInit(): void {
     this.aRoute.params
@@ -25,10 +28,22 @@ export class PrimariesDetailPageComponent implements OnInit {
       });
   }
 
-  getSuppliers(primaryId: string): void {
+  private getSuppliers(primaryId: string): void {
     if (this.primary)
       this.primariesService
         .getSuppliers(primaryId)
-        .subscribe((data) => console.log(data));
+        .pipe(
+          map(({ items }) =>
+            items.map((ps) => ({
+              id: ps.id,
+              supplier: ps.expand.supplier.supplier,
+              unit_price: ps.unit_price,
+              updated: ps.updated.slice(0, 10),
+            }))
+          )
+        )
+        .subscribe(
+          (primarySuppliers) => (this.primarySuppliers = primarySuppliers)
+        );
   }
 }

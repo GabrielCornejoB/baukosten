@@ -1,5 +1,3 @@
-import { Supplier } from '../suppliers/supplier.interface';
-
 // UI Model
 export interface Primary {
   id: string;
@@ -37,21 +35,4 @@ export interface PrimaryResponseItem {
       unit: string;
     };
   };
-}
-
-// TODO: Move to another File
-export interface PrimarySupplierResponse {
-  page: number;
-  perPage: number;
-  totalItems: number;
-  totalPages: number;
-  items: {
-    id: string;
-    primary: string;
-    supplier: string;
-    updated: string;
-    expand: {
-      supplier: Supplier;
-    };
-  }[];
 }

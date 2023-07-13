@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PrimariesService } from '../primaries.service';
-import { Primary } from '../primary.interface';
+import { Primary } from '../interfaces/primary.interface';
 import { map } from 'rxjs';
 
 @Component({
