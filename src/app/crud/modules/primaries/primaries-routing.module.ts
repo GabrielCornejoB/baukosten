@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrimariesReadPageComponent } from './primaries-read-page.component';
+import { PrimariesListPageComponent } from './primaries-list-page.component';
 
 const routes: Routes = [
   {
@@ -8,7 +8,7 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: PrimariesReadPageComponent,
+        component: PrimariesListPageComponent,
       },
       {
         path: '**',

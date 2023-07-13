@@ -4,7 +4,7 @@ import { Primary } from './primary.interface';
 import { map } from 'rxjs';
 
 @Component({
-  selector: 'primaries-read-page',
+  selector: 'primaries-list-page',
   template: `
     <crud-header title="Primary Supplies" />
     <crud-table
@@ -15,7 +15,7 @@ import { map } from 'rxjs';
   `,
   styles: [],
 })
-export class PrimariesReadPageComponent implements OnInit {
+export class PrimariesListPageComponent implements OnInit {
   private primariesService = inject(PrimariesService);
 
   public primaries: Primary[] = [];
