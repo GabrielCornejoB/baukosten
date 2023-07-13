@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UnitsRoutingModule } from './units-routing.module';
-import { UnitsReadPageComponent } from './units-read-page.component';
+import { UnitsListPageComponent } from './units-list-page.component';
 import { CrudModule } from '../../crud.module';
 
 @NgModule({
-  declarations: [UnitsReadPageComponent],
+  declarations: [UnitsListPageComponent],
   imports: [CommonModule, UnitsRoutingModule, CrudModule],
 })
 export class UnitsModule {}

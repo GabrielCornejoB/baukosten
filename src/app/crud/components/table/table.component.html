@@ -3,7 +3,7 @@
     <!-- head -->
     <thead>
       <tr>
-        <th class="first:w-36" *ngFor="let header of keys; let i = index">
+        <th class="first:w-40" *ngFor="let header of keys; let i = index">
           {{ keys[i].toString() | columnTitleTransform }}
         </th>
         <th *ngIf="hasDetailView" class="w-24"></th>

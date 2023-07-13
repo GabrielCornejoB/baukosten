@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UnitsReadPageComponent } from './units-read-page.component';
+import { UnitsListPageComponent } from './units-list-page.component';
 
 const routes: Routes = [
   {
@@ -8,7 +8,7 @@ const routes: Routes = [
     children: [
       {
         path: 'read',
-        component: UnitsReadPageComponent,
+        component: UnitsListPageComponent,
       },
       {
         path: '**',
