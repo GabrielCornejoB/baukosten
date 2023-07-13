@@ -1,29 +1,26 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Primary } from '../primary.interface';
-import { switchMap } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, switchMap } from 'rxjs';
 import { PrimariesService } from '../primaries.service';
 
 @Component({
   selector: 'primaries-detail-page',
-  template: `
-    <crud-header title="Suppliers of ____" />
-
-    <div *ngIf="str">{{ str }}</div>
-  `,
+  template: ` <crud-header [title]="'Suppliers of ' + primary" /> `,
 })
 export class PrimariesDetailPageComponent implements OnInit {
   private aRoute = inject(ActivatedRoute);
+  private router = inject(Router);
   private primariesService = inject(PrimariesService);
 
-  public primary?: Primary;
-  public str?: string;
+  public primary?: string;
 
   ngOnInit(): void {
     this.aRoute.params
       .pipe(switchMap(({ id }) => this.primariesService.getOne(id)))
       .subscribe((item) => {
-        console.log(item.id);
+        if (!item) return this.router.navigateByUrl('/crud/primaries/list');
+        this.primary = item.primary;
+        return;
       });
   }
 }
