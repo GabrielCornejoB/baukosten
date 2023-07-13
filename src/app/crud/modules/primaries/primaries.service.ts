@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CrudService } from '../../crud.service';
 import {
   PrimaryResponse,
-  Item as PrimaryItem,
   PrimarySupplierResponse,
+  PrimaryResponseItems,
 } from './primary.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class PrimariesService extends CrudService<
   PrimaryResponse,
-  PrimaryItem
+  PrimaryResponseItems
 > {
   constructor(protected override http: HttpClient) {
     super(http);
@@ -24,7 +24,12 @@ export class PrimariesService extends CrudService<
   }
 
   override getListQueryParams(): string {
-    return '?expand=unit, classification, default_primary_supplier.supplier';
+    const expandedFields: string =
+      '?expand=unit, classification, default_primary_supplier.supplier';
+    const selectedFields: string =
+      'fields=id, primary, expand.unit.unit, expand.classification.classification, expand.default_primary_supplier.unit_price, expand.default_primary_supplier.expand.supplier.supplier';
+
+    return `${expandedFields}&${selectedFields}`;
   }
 
   override getViewEndpoint(): string {
