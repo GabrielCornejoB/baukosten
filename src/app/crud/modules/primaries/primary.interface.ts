@@ -54,3 +54,19 @@ export interface PrimarySupplier {
   unit_price: number;
   updated: string;
 }
+
+export interface PrimarySupplierResponse {
+  page: number;
+  perPage: number;
+  totalItems: number;
+  totalPages: number;
+  items: {
+    id: string;
+    primary: string;
+    supplier: string;
+    updated: string;
+    expand: {
+      supplier: SupplierItem;
+    };
+  }[];
+}

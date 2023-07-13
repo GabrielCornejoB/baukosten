@@ -5,7 +5,7 @@ import { PrimariesService } from '../primaries.service';
 
 @Component({
   selector: 'primaries-detail-page',
-  template: ` <crud-header [title]="'Suppliers of ' + primary" /> `,
+  template: ` <crud-header [title]="'Suppliers of ' + primary" />`,
 })
 export class PrimariesDetailPageComponent implements OnInit {
   private aRoute = inject(ActivatedRoute);
@@ -20,7 +20,15 @@ export class PrimariesDetailPageComponent implements OnInit {
       .subscribe((item) => {
         if (!item) return this.router.navigateByUrl('/crud/primaries/list');
         this.primary = item.primary;
+        this.getSuppliers(item.id);
         return;
       });
+  }
+
+  getSuppliers(primaryId: string): void {
+    if (this.primary)
+      this.primariesService
+        .getSuppliers(primaryId)
+        .subscribe((data) => console.log(data));
   }
 }
