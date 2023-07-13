@@ -2,16 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SuppliersRoutingModule } from './suppliers-routing.module';
-import { SuppliersReadPageComponent } from './suppliers-read-page.component';
-
+import { SuppliersListPageComponent } from './suppliers-list-page.component';
+import { CrudModule } from '../../crud.module';
 
 @NgModule({
-  declarations: [
-    SuppliersReadPageComponent
-  ],
-  imports: [
-    CommonModule,
-    SuppliersRoutingModule
-  ]
+  declarations: [SuppliersListPageComponent],
+  imports: [CommonModule, SuppliersRoutingModule, CrudModule],
 })
-export class SuppliersModule { }
+export class SuppliersModule {}

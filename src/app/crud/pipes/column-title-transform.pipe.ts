@@ -18,6 +18,8 @@ export class ColumnTitleTransformPipe implements PipeTransform {
         return 'Unit';
       case 'product':
         return 'Product';
+      case 'supplier':
+        return 'Supplier';
       default:
         return '';
     }
