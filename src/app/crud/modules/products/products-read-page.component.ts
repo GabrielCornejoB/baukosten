@@ -7,33 +7,31 @@ import { map } from 'rxjs';
   selector: 'products-read-page',
   template: `
     <crud-header title="Compound Products" />
-    <crud-table
+    <!-- <crud-table
       [tableData]="products"
       [hasDetailView]="true"
       detailViewText="Materials"
-    />
+    /> -->
   `,
   styles: [],
 })
-export class ProductsReadPageComponent implements OnInit {
-  private productsService = inject(ProductsService);
-
-  public products: DisplayProduct[] = [];
-
-  ngOnInit(): void {
-    this.productsService
-      .getAll()
-      .pipe(
-        map((products) =>
-          products.map((product) => ({
-            id: product.id,
-            product: product.product,
-            measurement_unit: product.measurement_unit,
-          }))
-        )
-      )
-      .subscribe((products) => {
-        this.products = products;
-      });
-  }
+export class ProductsReadPageComponent {
+  // private productsService = inject(ProductsService);
+  // public products: DisplayProduct[] = [];
+  // ngOnInit(): void {
+  //   this.productsService
+  //     .getAll()
+  //     .pipe(
+  //       map((products) =>
+  //         products.map((product) => ({
+  //           id: product.id,
+  //           product: product.product,
+  //           measurement_unit: product.measurement_unit,
+  //         }))
+  //       )
+  //     )
+  //     .subscribe((products) => {
+  //       this.products = products;
+  //     });
+  // }
 }

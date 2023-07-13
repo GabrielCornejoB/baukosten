@@ -6,18 +6,16 @@ import { UnitsService } from './units.service';
   selector: 'units-read-page',
   template: `
     <crud-header title="Measurement Units" />
-    <crud-table [tableData]="units" />
+    <!-- <crud-table [tableData]="units" /> -->
   `,
   styles: [],
 })
-export class UnitsReadPageComponent implements OnInit {
-  private unitsService = inject(UnitsService);
-
-  public units: Unit[] = [];
-
-  ngOnInit(): void {
-    this.unitsService.getAll().subscribe((units) => {
-      this.units = units;
-    });
-  }
+export class UnitsReadPageComponent {
+  // private unitsService = inject(UnitsService);
+  // public units: Unit[] = [];
+  // ngOnInit(): void {
+  //   this.unitsService.getAll().subscribe((units) => {
+  //     this.units = units;
+  //   });
+  // }
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ClassificationsService } from './classifications.service';
-import { Classification } from './classification.interface';
+import {
+  Classification,
+  ClassificationResponse,
+} from './classification.interface';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'classifications-read-page',
@@ -15,8 +19,18 @@ export class ClassificationsReadPageComponent implements OnInit {
   public classifications: Classification[] = [];
 
   ngOnInit(): void {
-    this.classificationsService.getAll().subscribe((classifications) => {
-      this.classifications = classifications;
-    });
+    this.classificationsService
+      .getAll()
+      .pipe(
+        map(({ items }) =>
+          items.map((classification) => ({
+            id: classification.id,
+            classification: classification.classification,
+          }))
+        )
+      )
+      .subscribe((classifications) => {
+        this.classifications = classifications;
+      });
   }
 }

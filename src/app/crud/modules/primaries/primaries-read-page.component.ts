@@ -6,22 +6,20 @@ import { Primary } from './primary.interface';
   selector: 'primaries-read-page',
   template: `
     <crud-header title="Primary Supplies" />
-    <crud-table
+    <!-- <crud-table
       [tableData]="primaries"
       [hasDetailView]="true"
       detailViewText="Suppliers"
-    />
+    /> -->
   `,
   styles: [],
 })
-export class PrimariesReadPageComponent implements OnInit {
-  private primariesService = inject(PrimariesService);
-
-  public primaries: Primary[] = [];
-
-  ngOnInit(): void {
-    this.primariesService.getAll().subscribe((primaries) => {
-      this.primaries = primaries;
-    });
-  }
+export class PrimariesReadPageComponent {
+  // private primariesService = inject(PrimariesService);
+  // public primaries: Primary[] = [];
+  // ngOnInit(): void {
+  //   this.primariesService.getAll().subscribe((primaries) => {
+  //     this.primaries = primaries;
+  //   });
+  // }
 }
