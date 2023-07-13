@@ -23,7 +23,7 @@ export class PrimariesService extends CrudService<
     return 'primaries';
   }
 
-  override getListEndpoint(): string {
+  override getListQueryParams(): string {
     return '?expand=unit, classification, default_primary_supplier.supplier';
   }
 

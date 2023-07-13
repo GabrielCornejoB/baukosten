@@ -14,7 +14,7 @@ export class ProductsService extends CrudService<ProductResponse, ProductItem> {
   override getResource(): string {
     return 'products/records?expand=unit';
   }
-  override getListEndpoint(): string {
+  override getListQueryParams(): string {
     return '';
   }
   override getViewEndpoint(): string {

@@ -1,6 +1,6 @@
 import { Item as ClassificationItem } from '../classifications/classification.interface';
 import { Item as UnitItem } from '../units/unit.interface';
-import { Item as SupplierItem } from '../suppliers/supplier.interface';
+import { Supplier } from '../suppliers/supplier.interface';
 
 export interface Primary {
   id: string;
@@ -22,15 +22,15 @@ export interface PrimaryResponse {
 }
 
 export interface Item {
-  classification: string;
-  collectionId: string;
-  collectionName: string;
-  created: string;
-  expand: Expand;
-  id: string;
-  primary: string;
-  unit: string;
-  updated: string;
+  classification: string; // *
+  collectionId: string; // !
+  collectionName: string; // !
+  created: string; // !
+  expand: Expand; // ?
+  id: string; // *
+  primary: string; // *
+  unit: string; // !
+  updated: string; // ?
 }
 
 export interface Expand {
@@ -46,7 +46,7 @@ export interface PrimarySupplier {
   id: string;
 
   expand: {
-    supplier: SupplierItem;
+    supplier: Supplier;
   };
 
   primary: string;
@@ -66,7 +66,7 @@ export interface PrimarySupplierResponse {
     supplier: string;
     updated: string;
     expand: {
-      supplier: SupplierItem;
+      supplier: Supplier;
     };
   }[];
 }

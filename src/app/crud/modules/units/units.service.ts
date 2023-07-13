@@ -15,7 +15,7 @@ export class UnitsService extends CrudService<UnitResponse, UnitItem> {
     return 'units/records/';
   }
 
-  override getListEndpoint(): string {
+  override getListQueryParams(): string {
     return '';
   }
   override getViewEndpoint(): string {
