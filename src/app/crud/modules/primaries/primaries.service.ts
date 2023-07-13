@@ -12,6 +12,6 @@ export class PrimariesService extends CrudService<PrimaryResponse> {
   }
 
   override getResourceEndpoint(): string {
-    return 'primaries/records?expand=unit, classification';
+    return 'primaries/records?expand=unit, classification, default_primary_supplier.supplier';
   }
 }

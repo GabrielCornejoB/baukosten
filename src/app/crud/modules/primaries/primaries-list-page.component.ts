@@ -31,6 +31,11 @@ export class PrimariesListPageComponent implements OnInit {
               primary: primary.primary,
               unit: primary.expand.unit.unit,
               classification: primary.expand.classification.classification,
+              default_supplier:
+                primary.expand.default_primary_supplier?.expand.supplier
+                  .supplier ?? 'n/a',
+              default_price:
+                primary.expand.default_primary_supplier?.unit_price,
             };
           })
         )
