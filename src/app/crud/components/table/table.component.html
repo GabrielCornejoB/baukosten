@@ -24,7 +24,12 @@
         </td>
 
         <td *ngIf="hasDetailView">
-          <button class="btn-ghost btn-xs btn">{{ detailViewText }}</button>
+          <button
+            class="btn-ghost btn-xs btn"
+            [routerLink]="['../details', row.id]"
+          >
+            {{ detailViewText }}
+          </button>
         </td>
 
         <td>
