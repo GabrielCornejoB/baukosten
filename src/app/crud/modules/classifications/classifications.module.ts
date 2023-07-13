@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { ClassificationsRoutingModule } from './classifications-routing.module';
 import { CrudModule } from '../../crud.module';
-import { ClassificationsReadPageComponent } from './classifications-read-page.component';
+import { ClassificationsListPageComponent } from './classifications-list-page.component';
 
 @NgModule({
-  declarations: [ClassificationsReadPageComponent],
+  declarations: [ClassificationsListPageComponent],
   imports: [CommonModule, ClassificationsRoutingModule, CrudModule],
 })
 export class ClassificationsModule {}

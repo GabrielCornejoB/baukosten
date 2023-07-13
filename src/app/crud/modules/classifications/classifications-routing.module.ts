@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClassificationsReadPageComponent } from './classifications-read-page.component';
+import { ClassificationsListPageComponent } from './classifications-list-page.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'read',
-        component: ClassificationsReadPageComponent,
+        path: 'list',
+        component: ClassificationsListPageComponent,
       },
       {
         path: '**',
-        redirectTo: 'read',
+        redirectTo: 'list',
       },
     ],
   },
