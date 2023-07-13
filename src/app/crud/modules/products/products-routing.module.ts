@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsReadPageComponent } from './products-read-page.component';
+import { ProductsListPageComponent } from './products-list-page.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'read',
-        component: ProductsReadPageComponent,
+        path: 'list',
+        component: ProductsListPageComponent,
       },
       {
         path: '**',
-        redirectTo: 'read',
+        redirectTo: 'list',
       },
     ],
   },
