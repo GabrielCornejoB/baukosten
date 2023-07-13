@@ -17,6 +17,10 @@ export class UnitsListPageComponent implements OnInit {
   public units: Unit[] = [];
 
   ngOnInit(): void {
+    this.getUnits();
+  }
+
+  private getUnits(): void {
     this.unitsService
       .getAll()
       .pipe(map(({ items }) => items))

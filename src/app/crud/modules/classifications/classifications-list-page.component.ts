@@ -16,6 +16,10 @@ export class ClassificationsListPageComponent implements OnInit {
   public classifications: Classification[] = [];
 
   ngOnInit(): void {
+    this.getClassifications();
+  }
+
+  private getClassifications(): void {
     this.classificationsService
       .getAll()
       .pipe(

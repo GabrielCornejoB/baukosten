@@ -21,6 +21,10 @@ export class PrimariesListPageComponent implements OnInit {
   public primaries: Primary[] = [];
 
   ngOnInit(): void {
+    this.getPrimaries();
+  }
+
+  private getPrimaries(): void {
     this.primariesService
       .getAll()
       .pipe(

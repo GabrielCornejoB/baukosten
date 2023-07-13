@@ -16,6 +16,10 @@ export class SuppliersListPageComponent implements OnInit {
   public suppliers: Supplier[] = [];
 
   ngOnInit(): void {
+    this.getSuppliers();
+  }
+
+  private getSuppliers(): void {
     this.suppliersService
       .getAll()
       .pipe(map(({ items }) => items))
