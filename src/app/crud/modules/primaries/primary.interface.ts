@@ -15,10 +15,10 @@ export interface PrimaryResponse {
   perPage: number;
   totalItems: number;
   totalPages: number;
-  items: PrimaryResponseItems[];
+  items: PrimaryResponseItem[];
 }
 
-export interface PrimaryResponseItems {
+export interface PrimaryResponseItem {
   id: string;
   primary: string;
   expand: {

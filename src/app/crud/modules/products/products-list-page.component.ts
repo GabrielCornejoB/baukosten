@@ -21,6 +21,10 @@ export class ProductsListPageComponent implements OnInit {
   public products: Product[] = [];
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  private getProducts(): void {
     this.productsService
       .getAll()
       .pipe(

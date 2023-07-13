@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { CrudService } from '../../crud.service';
 import { HttpClient } from '@angular/common/http';
-import { ProductResponse, Item as ProductItem } from './product.interface';
+import { ProductResponse, ProductResponseItem } from './product.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService extends CrudService<ProductResponse, ProductItem> {
+export class ProductsService extends CrudService<
+  ProductResponse,
+  ProductResponseItem
+> {
   constructor(protected override http: HttpClient) {
     super(http);
   }
 
   override getResource(): string {
-    return 'products/records?expand=unit';
+    return 'products';
   }
   override getListQueryParams(): string {
-    return '';
+    return '?expand=unit&fields=id, product, expand.unit.unit';
   }
   override getViewEndpoint(): string {
     return '';

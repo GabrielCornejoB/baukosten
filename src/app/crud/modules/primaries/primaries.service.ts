@@ -3,7 +3,7 @@ import { CrudService } from '../../crud.service';
 import {
   PrimaryResponse,
   PrimarySupplierResponse,
-  PrimaryResponseItems,
+  PrimaryResponseItem,
 } from './primary.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class PrimariesService extends CrudService<
   PrimaryResponse,
-  PrimaryResponseItems
+  PrimaryResponseItem
 > {
   constructor(protected override http: HttpClient) {
     super(http);
