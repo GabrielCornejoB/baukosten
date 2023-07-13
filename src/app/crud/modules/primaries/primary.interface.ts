@@ -1,5 +1,5 @@
-import { Item as ClassificationItem } from '../classifications/classification.interface';
-import { Item as UnitItem } from '../units/unit.interface';
+import { Classification } from '../classifications/classification.interface';
+import { Unit } from '../units/unit.interface';
 import { Supplier } from '../suppliers/supplier.interface';
 
 export interface Primary {
@@ -34,8 +34,8 @@ export interface Item {
 }
 
 export interface Expand {
-  classification: ClassificationItem;
-  unit: UnitItem;
+  classification: Classification;
+  unit: Unit;
   default_primary_supplier?: PrimarySupplier;
 }
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CrudService } from '../../crud.service';
 import {
   ClassificationResponse,
-  Item as ClassificationItem,
+  Classification,
 } from './classification.interface';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,16 +11,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClassificationsService extends CrudService<
   ClassificationResponse,
-  ClassificationItem
+  Classification
 > {
   constructor(protected override http: HttpClient) {
     super(http);
   }
   override getResource(): string {
-    return 'classifications/';
+    return 'classifications';
   }
   override getListQueryParams(): string {
-    return '';
+    return '?fields=id, classification';
   }
   override getViewEndpoint(): string {
     return '';

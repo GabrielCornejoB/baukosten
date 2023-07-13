@@ -10,14 +10,5 @@ export interface ClassificationResponse {
   perPage: number;
   totalItems: number;
   totalPages: number;
-  items: Item[];
-}
-
-export interface Item {
-  classification: string;
-  collectionId: string;
-  collectionName: string;
-  created: string;
-  id: string;
-  updated: string;
+  items: Classification[];
 }

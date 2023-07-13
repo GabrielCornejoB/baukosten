@@ -1,4 +1,4 @@
-import { Item as UnitItem } from '../units/unit.interface';
+import { Unit } from '../units/unit.interface';
 
 export interface Product {
   id: string;
@@ -28,5 +28,5 @@ export interface Item {
 }
 
 export interface Expand {
-  unit: UnitItem;
+  unit: Unit;
 }

@@ -18,14 +18,7 @@ export class SuppliersListPageComponent implements OnInit {
   ngOnInit(): void {
     this.suppliersService
       .getAll()
-      .pipe(
-        map(({ items }) =>
-          items.map((supplier) => ({
-            id: supplier.id,
-            supplier: supplier.supplier,
-          }))
-        )
-      )
+      .pipe(map(({ items }) => items))
       .subscribe((suppliers) => (this.suppliers = suppliers));
   }
 }

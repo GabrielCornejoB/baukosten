@@ -19,14 +19,7 @@ export class UnitsListPageComponent implements OnInit {
   ngOnInit(): void {
     this.unitsService
       .getAll()
-      .pipe(
-        map(({ items }) =>
-          items.map((unit) => ({
-            id: unit.id,
-            unit: unit.unit,
-          }))
-        )
-      )
+      .pipe(map(({ items }) => items))
       .subscribe((units) => (this.units = units));
   }
 }
