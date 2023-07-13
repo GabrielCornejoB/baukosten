@@ -3,7 +3,7 @@
     <!-- head -->
     <thead>
       <tr>
-        <th class="first:w-40" *ngFor="let header of keys; let i = index">
+        <th class="first:w-16" *ngFor="let header of keys; let i = index">
           {{ keys[i].toString() | columnTitleTransform }}
         </th>
         <th *ngIf="hasDetailView" class="w-24"></th>
@@ -11,17 +11,28 @@
         <th class="w-16"></th>
       </tr>
     </thead>
+
     <tbody>
       <tr *ngFor="let row of tableData" class="hover">
-        <td *ngFor="let col of keys">{{ row[col] }}</td>
+        <td *ngFor="let col of keys; let i = index">
+          <!-- If first row (id), then show a <pre> tag instead and slice the string to a 3 Digit Id -->
+          <pre *ngIf="i == 0" [title]="row[col]">{{
+            row[col] | uppercase | slice : 0 : 3
+          }}</pre>
+
+          <ng-container *ngIf="i != 0">{{ row[col] }}</ng-container>
+        </td>
+
         <td *ngIf="hasDetailView">
           <button class="btn-ghost btn-xs btn">{{ detailViewText }}</button>
         </td>
+
         <td>
           <button class="btn-ghost btn-square btn-sm btn">
             <span class="material-symbols-outlined"> edit </span>
           </button>
         </td>
+
         <td>
           <button class="btn-ghost btn-square btn-sm btn">
             <span class="material-symbols-outlined"> delete </span>
