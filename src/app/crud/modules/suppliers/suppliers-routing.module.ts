@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SuppliersListPageComponent } from './suppliers-list-page.component';
+import { SuppliersListPageComponent } from './pages/suppliers-list-page.component';
+import { SuppliersFormPageComponent } from './pages/suppliers-form-page/suppliers-form-page.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: SuppliersListPageComponent,
+      },
+      {
+        path: 'create',
+        component: SuppliersFormPageComponent,
       },
       {
         path: '**',

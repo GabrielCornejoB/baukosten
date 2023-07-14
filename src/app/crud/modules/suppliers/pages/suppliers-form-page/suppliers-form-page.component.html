@@ -1,0 +1,36 @@
+<crud-header title="Create new Supplier" [hasAddButton]="false" />
+
+<form
+  [formGroup]="newSupplierForm"
+  (ngSubmit)="onSubmit()"
+  class="flex w-full flex-col items-center gap-2"
+>
+  <div class="form-control w-full max-w-md">
+    <label class="label">
+      <span class="label-text">Type the Supplier's name</span>
+    </label>
+    <input
+      type="text"
+      placeholder="Supplier"
+      formControlName="supplier"
+      class="input-bordered input-primary input w-full"
+    />
+    <label class="label">
+      <span
+        *ngIf="
+          newSupplierForm.controls['supplier'].errors &&
+          newSupplierForm.controls['supplier'].touched
+        "
+        class="label-text-alt text-error"
+        >Supplier Field is <u>required</u></span
+      >
+    </label>
+  </div>
+  <button
+    type="submit"
+    [disabled]="newSupplierForm.invalid"
+    class="btn-primary btn w-full max-w-md"
+  >
+    CREATE
+  </button>
+</form>

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { SuppliersService } from './suppliers.service';
-import { Supplier } from './supplier.interface';
+import { SuppliersService } from '../suppliers.service';
+import { Supplier } from '../supplier.interface';
 import { map } from 'rxjs';
 
 @Component({

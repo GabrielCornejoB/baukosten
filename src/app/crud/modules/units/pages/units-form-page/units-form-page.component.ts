@@ -24,7 +24,6 @@ export class UnitsFormPageComponent {
   public onSubmit(): void {
     if (this.newUnitForm.invalid) return this.newUnitForm.markAllAsTouched();
 
-    console.log(this.unit);
     this.unitsService.create(this.unit).subscribe({
       next: () => this.router.navigateByUrl('/crud/units/list'),
       error: (e) => {
