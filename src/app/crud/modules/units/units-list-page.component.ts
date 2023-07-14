@@ -7,7 +7,7 @@ import { map } from 'rxjs';
   selector: 'units-list-page',
   template: `
     <crud-header title="Measurement Units" />
-    <crud-table [tableData]="units" />
+    <crud-table [tableData]="units" (idToDelete)="deleteUnit($event)" />
   `,
   styles: [],
 })
@@ -25,5 +25,11 @@ export class UnitsListPageComponent implements OnInit {
       .getAll()
       .pipe(map(({ items }) => items))
       .subscribe((units) => (this.units = units));
+  }
+
+  public deleteUnit(id: string): void {
+    this.unitsService
+      .delete(id)
+      .subscribe(() => (this.units = this.units.filter((u) => id !== u.id)));
   }
 }
