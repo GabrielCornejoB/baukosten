@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ClassificationsService } from './classifications.service';
-import { Classification } from './classification.interface';
+import { ClassificationsService } from '../classifications.service';
+import { Classification } from '../classification.interface';
 import { map } from 'rxjs';
 
 @Component({

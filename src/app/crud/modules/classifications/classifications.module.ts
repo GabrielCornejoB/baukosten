@@ -3,10 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { ClassificationsRoutingModule } from './classifications-routing.module';
 import { CrudModule } from '../../crud.module';
-import { ClassificationsListPageComponent } from './classifications-list-page.component';
+import { ClassificationsListPageComponent } from './pages/classifications-list-page.component';
+import { ClassificationsFormPageComponent } from './pages/classifications-form-page/classifications-form-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ClassificationsListPageComponent],
-  imports: [CommonModule, ClassificationsRoutingModule, CrudModule],
+  declarations: [
+    ClassificationsListPageComponent,
+    ClassificationsFormPageComponent,
+  ],
+  imports: [
+    CommonModule,
+    ClassificationsRoutingModule,
+    CrudModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ClassificationsModule {}

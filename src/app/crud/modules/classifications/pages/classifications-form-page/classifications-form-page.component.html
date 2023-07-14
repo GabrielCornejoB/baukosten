@@ -1,0 +1,36 @@
+<crud-header title="Create new Classification" [hasAddButton]="false" />
+
+<form
+  [formGroup]="newClassificationForm"
+  (ngSubmit)="onSubmit()"
+  class="flex w-full flex-col items-center gap-2"
+>
+  <div class="form-control w-full max-w-md">
+    <label class="label">
+      <span class="label-text"> Type the Classification's name </span>
+    </label>
+    <input
+      type="text"
+      placeholder="Classificatrion"
+      formControlName="classification"
+      class="input-bordered input-primary input w-full"
+    />
+    <label class="label">
+      <span
+        *ngIf="
+          newClassificationForm.controls['classification'].errors &&
+          newClassificationForm.controls['classification'].touched
+        "
+        class="label-text-alt text-error"
+        >Classification Field is <u>required</u></span
+      >
+    </label>
+  </div>
+  <button
+    type="submit"
+    [disabled]="newClassificationForm.invalid"
+    class="btn-primary btn w-full max-w-md"
+  >
+    CREATE
+  </button>
+</form>

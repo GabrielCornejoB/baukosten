@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClassificationsListPageComponent } from './classifications-list-page.component';
+import { ClassificationsListPageComponent } from './pages/classifications-list-page.component';
+import { ClassificationsFormPageComponent } from './pages/classifications-form-page/classifications-form-page.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: ClassificationsListPageComponent,
+      },
+      {
+        path: 'create',
+        component: ClassificationsFormPageComponent,
       },
       {
         path: '**',
