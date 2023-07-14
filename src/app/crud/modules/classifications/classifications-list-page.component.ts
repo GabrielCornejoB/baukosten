@@ -7,7 +7,10 @@ import { map } from 'rxjs';
   selector: 'classifications-list-page',
   template: `
     <crud-header title="Classifications" />
-    <crud-table [tableData]="classifications" />
+    <crud-table
+      [tableData]="classifications"
+      (idToDelete)="doSomething($event)"
+    />
   `,
 })
 export class ClassificationsListPageComponent implements OnInit {
@@ -31,5 +34,12 @@ export class ClassificationsListPageComponent implements OnInit {
         )
       )
       .subscribe((classifications) => (this.classifications = classifications));
+  }
+
+  public doSomething(id: string) {
+    this.classificationsService.delete(id).subscribe(() => {
+      console.log('deleted');
+      this.classifications = this.classifications.filter((c) => id !== c.id);
+    });
   }
 }

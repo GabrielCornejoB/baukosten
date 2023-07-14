@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, of, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +27,10 @@ export abstract class CrudService<TData, TDatum /*, TCreate, TUpdate*/> {
 
   // public update(updateBody: TUpdate): Observable<TRead>
 
-  // public delete(id: string): Observable<TRead>
+  public delete(id: string): Observable<boolean> {
+    return this.http.delete(`${this.APIUrl}${id}`).pipe(
+      map(() => true),
+      catchError(() => of(false))
+    );
+  }
 }

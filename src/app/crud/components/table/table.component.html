@@ -39,7 +39,10 @@
         </td>
 
         <td>
-          <button class="btn-ghost btn-square btn-sm btn">
+          <button
+            (click)="delete(row.id)"
+            class="btn-ghost btn-square btn-sm btn"
+          >
             <span class="material-symbols-outlined"> delete </span>
           </button>
         </td>
