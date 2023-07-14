@@ -21,13 +21,23 @@ export class TableComponent<TData extends { id: string }> implements OnChanges {
 
   public keys?: Array<keyof TData>;
 
+  public selectedId: string | undefined;
+
   ngOnChanges(changes: SimpleChanges): void {
     if (this.tableData.length > 0 && this.keys === undefined) {
       this.keys = Object.keys(this.tableData[0]) as Array<keyof TData>;
     }
   }
 
-  public delete(id: string) {
-    this.idToDelete.emit(id);
+  public delete() {
+    if (this.selectedId) this.idToDelete.emit(this.selectedId);
+  }
+
+  public openModal(id: string) {
+    const table_modal = document.getElementById('table_modal');
+    if (table_modal) {
+      (table_modal as HTMLDialogElement).showModal();
+      this.selectedId = id;
+    }
   }
 }

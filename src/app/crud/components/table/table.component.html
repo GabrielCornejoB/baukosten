@@ -1,4 +1,4 @@
-<div class="overflow-x-auto">
+<div class="overflow-x-auto overflow-y-auto pb-6">
   <table *ngIf="keys != undefined" class="table">
     <!-- head -->
     <thead>
@@ -33,20 +33,36 @@
         </td>
 
         <td>
-          <button class="btn-ghost btn-square btn-sm btn">
-            <span class="material-symbols-outlined"> edit </span>
-          </button>
+          <div class="tooltip tooltip-bottom" data-tip="Update">
+            <button class="btn-ghost btn-square btn-sm btn">
+              <span class="material-symbols-outlined"> edit </span>
+            </button>
+          </div>
         </td>
 
         <td>
-          <button
-            (click)="delete(row.id)"
-            class="btn-ghost btn-square btn-sm btn"
-          >
-            <span class="material-symbols-outlined"> delete </span>
-          </button>
+          <div class="tooltip tooltip-bottom" data-tip="Delete">
+            <button
+              (click)="openModal(row.id)"
+              class="btn-ghost btn-square btn-sm btn"
+            >
+              <span class="material-symbols-outlined swap-off"> delete </span>
+            </button>
+          </div>
         </td>
       </tr>
+      <dialog id="table_modal" class="modal">
+        <form method="dialog" class="modal-box">
+          <h2 class="text-2xl font-bold">Are you sure you want to delete?</h2>
+          <p class="py-4">This action cannot be undone</p>
+          <div class="modal-action">
+            <button (click)="this.selectedId = undefined" class="btn">
+              Cancel
+            </button>
+            <button (click)="delete()" class="btn-primary btn">Confirm</button>
+          </div>
+        </form>
+      </dialog>
     </tbody>
   </table>
 </div>

@@ -9,7 +9,7 @@ import { map } from 'rxjs';
     <crud-header title="Classifications" />
     <crud-table
       [tableData]="classifications"
-      (idToDelete)="doSomething($event)"
+      (idToDelete)="deleteClassification($event)"
     />
   `,
 })
@@ -36,9 +36,8 @@ export class ClassificationsListPageComponent implements OnInit {
       .subscribe((classifications) => (this.classifications = classifications));
   }
 
-  public doSomething(id: string) {
+  public deleteClassification(id: string) {
     this.classificationsService.delete(id).subscribe(() => {
-      console.log('deleted');
       this.classifications = this.classifications.filter((c) => id !== c.id);
     });
   }
