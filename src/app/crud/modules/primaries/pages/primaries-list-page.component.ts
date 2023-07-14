@@ -11,6 +11,7 @@ import { map } from 'rxjs';
       [tableData]="primaries"
       [hasDetailView]="true"
       detailViewText="Suppliers"
+      (onDelete)="deletePrimary($event)"
     />
   `,
   styles: [],
@@ -45,5 +46,11 @@ export class PrimariesListPageComponent implements OnInit {
         )
       )
       .subscribe((primaries) => (this.primaries = primaries));
+  }
+
+  public deletePrimary(id: string): void {
+    this.primariesService.delete(id).subscribe(() => {
+      this.primaries = this.primaries.filter((p) => id !== p.id);
+    });
   }
 }

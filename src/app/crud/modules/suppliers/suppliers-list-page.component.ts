@@ -7,7 +7,7 @@ import { map } from 'rxjs';
   selector: 'suppliers-list-page',
   template: `
     <crud-header title="Suppliers" />
-    <crud-table [tableData]="suppliers" (idToDelete)="deleteSupplier($event)" />
+    <crud-table [tableData]="suppliers" (onDelete)="deleteSupplier($event)" />
   `,
 })
 export class SuppliersListPageComponent implements OnInit {

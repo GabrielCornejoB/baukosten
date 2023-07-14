@@ -9,7 +9,7 @@ import { map } from 'rxjs';
     <crud-header title="Classifications" />
     <crud-table
       [tableData]="classifications"
-      (idToDelete)="deleteClassification($event)"
+      (onDelete)="deleteClassification($event)"
     />
   `,
 })

@@ -7,7 +7,7 @@ import { map } from 'rxjs';
   selector: 'units-list-page',
   template: `
     <crud-header title="Measurement Units" />
-    <crud-table [tableData]="units" (idToDelete)="deleteUnit($event)" />
+    <crud-table [tableData]="units" (onDelete)="deleteUnit($event)" />
   `,
   styles: [],
 })

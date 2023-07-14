@@ -17,7 +17,7 @@ export class TableComponent<TData extends { id: string }> implements OnChanges {
   @Input() public hasDetailView: boolean = false;
   @Input() public detailViewText: string = '';
 
-  @Output() idToDelete: EventEmitter<string> = new EventEmitter();
+  @Output() onDelete: EventEmitter<string> = new EventEmitter();
 
   public keys?: Array<keyof TData>;
 
@@ -30,7 +30,7 @@ export class TableComponent<TData extends { id: string }> implements OnChanges {
   }
 
   public delete() {
-    if (this.selectedId) this.idToDelete.emit(this.selectedId);
+    if (this.selectedId) this.onDelete.emit(this.selectedId);
   }
 
   public openModal(id: string) {
