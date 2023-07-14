@@ -1,0 +1,87 @@
+<crud-header title="Create new Primary" [hasAddButton]="false" />
+<form
+  [formGroup]="newPrimaryForm"
+  (ngSubmit)="onSubmit()"
+  class="flex w-full flex-col items-center gap-2"
+>
+  <div class="form-control w-full max-w-md">
+    <label class="label">
+      <span class="label-text"> Type the Primary's description </span>
+    </label>
+    <input
+      type="text"
+      placeholder="Primary Supply"
+      formControlName="primary"
+      class="input-bordered input-primary input w-full"
+    />
+    <label class="label">
+      <span
+        *ngIf="
+          newPrimaryForm.controls['primary'].errors &&
+          newPrimaryForm.controls['primary'].touched
+        "
+        class="label-text-alt text-error"
+        >Primary Field is <u>required</u></span
+      >
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-md">
+    <label class="label">
+      <span class="label-text"> Select the Primary's Measurement Unit</span>
+    </label>
+    <select
+      formControlName="unit"
+      class="select-bordered select-primary select w-full"
+    >
+      <option *ngFor="let unit of units" [value]="unit.id">
+        {{ unit.unit }}
+      </option>
+    </select>
+    <label class="label">
+      <span
+        *ngIf="
+          newPrimaryForm.controls['unit'].errors &&
+          newPrimaryForm.controls['unit'].touched
+        "
+        class="label-text-alt text-error"
+        >Measurement Unit is <u>required</u></span
+      >
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-md">
+    <label class="label">
+      <span class="label-text"> Select the Primary's Classification</span>
+    </label>
+    <select
+      formControlName="classification"
+      class="select-bordered select-primary select w-full"
+    >
+      <option
+        *ngFor="let classification of classifications"
+        [value]="classification.id"
+      >
+        {{ classification.classification }}
+      </option>
+    </select>
+    <label class="label">
+      <span
+        *ngIf="
+          newPrimaryForm.controls['classification'].errors &&
+          newPrimaryForm.controls['classification'].touched
+        "
+        class="label-text-alt text-error"
+        >Classification is <u>required</u></span
+      >
+    </label>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="newPrimaryForm.invalid"
+    class="btn-primary btn w-full max-w-md"
+  >
+    CREATE
+  </button>
+</form>
