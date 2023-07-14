@@ -28,6 +28,10 @@ export class TitleTransformPipe implements PipeTransform {
         return "Primary's Unit Price";
       case 'updated':
         return 'Last Updated';
+      case 'usage':
+        return 'Usage';
+      case 'waste':
+        return 'Waste';
       default:
         return '';
     }

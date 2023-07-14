@@ -7,7 +7,7 @@ import { Primary } from '../interfaces/primary.interface';
 
 @Component({
   selector: 'primaries-detail-page',
-  template: ` <crud-header [title]="'Suppliers of ' + primary?.primary" />
+  template: ` <crud-header [title]="'Suppliers of: ' + primary?.primary" />
     <crud-detail-info [detailData]="primary" />
     <div class="divider"></div>
     <crud-table [tableData]="primarySuppliers" />`,
@@ -40,7 +40,6 @@ export class PrimariesDetailPageComponent implements OnInit {
             'n/a',
           default_price: item.expand.default_primary_supplier?.unit_price,
         };
-        console.log(this.primary);
         this.getSuppliers(item.id);
         return;
       });
