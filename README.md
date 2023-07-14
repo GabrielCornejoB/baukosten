@@ -75,3 +75,4 @@ In other project, I usually create a **Main Challenges** section, but for this o
 - The **R** of REST (Representation)
 - Define better the scopes for my projects
 - Creating Generic components/services can be useful and minimize a lot of boilerplate code, but they come with the cost of less flexibility
+- I better focus fully for now in Front-end development, Back-end is very important, but it is better to first be great at one than to try and learn both at the same time
