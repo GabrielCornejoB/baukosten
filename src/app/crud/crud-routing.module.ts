@@ -21,20 +21,7 @@ const routes: Routes = [
             (m) => m.ProductsModule
           ),
       },
-      {
-        path: 'budgets',
-        loadChildren: () =>
-          import('./modules/budgets/budgets.module').then(
-            (m) => m.BudgetsModule
-          ),
-      },
-      {
-        path: 'constructions',
-        loadChildren: () =>
-          import('./modules/constructions/constructions.module').then(
-            (m) => m.ConstructionsModule
-          ),
-      },
+
       {
         path: 'suppliers',
         loadChildren: () =>
