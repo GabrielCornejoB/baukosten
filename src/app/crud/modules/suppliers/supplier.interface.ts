@@ -10,3 +10,7 @@ export interface SupplierResponse {
   totalPages: number;
   items: Supplier[];
 }
+
+export interface SupplierReqBody {
+  supplier: string;
+}

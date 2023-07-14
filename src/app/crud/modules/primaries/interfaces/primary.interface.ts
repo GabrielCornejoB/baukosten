@@ -36,3 +36,9 @@ export interface PrimaryResponseItem {
     };
   };
 }
+
+export interface PrimaryReqBody {
+  primary: string;
+  unit: string; // unit_id
+  classification: string; // classification_id
+}

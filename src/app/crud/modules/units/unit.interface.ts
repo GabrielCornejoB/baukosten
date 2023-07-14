@@ -10,3 +10,7 @@ export interface UnitResponse {
   totalPages: number;
   items: Unit[];
 }
+
+export interface UnitReqBody {
+  unit: string;
+}

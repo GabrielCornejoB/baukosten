@@ -21,3 +21,8 @@ export interface ProductResponseItem {
     };
   };
 }
+
+export interface ProductReqBody {
+  product: string;
+  unit: string; // Unit_id
+}

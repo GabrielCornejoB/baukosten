@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CrudService } from '../../crud.service';
 import {
+  PrimaryReqBody,
   PrimaryResponse,
   PrimaryResponseItem,
 } from './interfaces/primary.interface';
@@ -13,7 +14,8 @@ import { PrimarySupplierResponse } from './interfaces/primary-supplier.interface
 })
 export class PrimariesService extends CrudService<
   PrimaryResponse,
-  PrimaryResponseItem
+  PrimaryResponseItem,
+  PrimaryReqBody
 > {
   constructor(protected override http: HttpClient) {
     super(http);

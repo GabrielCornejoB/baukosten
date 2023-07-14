@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CrudService } from '../../crud.service';
-import { UnitResponse, Unit } from './unit.interface';
+import { UnitResponse, Unit, UnitReqBody } from './unit.interface';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UnitsService extends CrudService<UnitResponse, Unit> {
+export class UnitsService extends CrudService<UnitResponse, Unit, UnitReqBody> {
   constructor(protected override http: HttpClient) {
     super(http);
   }

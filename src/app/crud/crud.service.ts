@@ -5,7 +5,7 @@ import { Observable, catchError, of, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export abstract class CrudService<TData, TDatum> {
+export abstract class CrudService<TData, TDatum, TBody> {
   private readonly APIUrl = `http://localhost:8090/api/collections/${this.getResource()}/records/`;
 
   constructor(protected http: HttpClient) {}
@@ -23,7 +23,12 @@ export abstract class CrudService<TData, TDatum> {
       .pipe(catchError(() => of(undefined)));
   }
 
-  // public create(newCreationBody: TCreate): Observable<TRead>
+  public create(requestBody: TBody): Observable<TDatum> {
+    return this.http.post<TDatum>(
+      `${this.APIUrl}${this.getQueryParams()}`,
+      requestBody
+    );
+  }
 
   // public update(updateBody: TUpdate): Observable<TRead>
 

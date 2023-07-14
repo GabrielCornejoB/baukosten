@@ -3,6 +3,7 @@ import { CrudService } from '../../crud.service';
 import {
   ClassificationResponse,
   Classification,
+  ClassificationReqBody,
 } from './classification.interface';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClassificationsService extends CrudService<
   ClassificationResponse,
-  Classification
+  Classification,
+  ClassificationReqBody
 > {
   constructor(protected override http: HttpClient) {
     super(http);

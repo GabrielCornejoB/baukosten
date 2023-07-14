@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CrudService } from '../../crud.service';
 import { HttpClient } from '@angular/common/http';
 import {
+  ProductReqBody,
   ProductResponse,
   ProductResponseItem,
 } from './interfaces/product.interface';
@@ -12,7 +13,8 @@ import { ProductPrimaryResponse } from './interfaces/product-material.interface'
 })
 export class ProductsService extends CrudService<
   ProductResponse,
-  ProductResponseItem
+  ProductResponseItem,
+  ProductReqBody
 > {
   constructor(protected override http: HttpClient) {
     super(http);

@@ -10,3 +10,7 @@ export interface ClassificationResponse {
   totalPages: number;
   items: Classification[];
 }
+
+export interface ClassificationReqBody {
+  classification: string;
+}
