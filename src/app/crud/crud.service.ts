@@ -5,7 +5,7 @@ import { Observable, catchError, of, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export abstract class CrudService<TData, TDatum /*, TCreate, TUpdate*/> {
+export abstract class CrudService<TData, TDatum> {
   private readonly APIUrl = `http://localhost:8090/api/collections/${this.getResource()}/records/`;
 
   constructor(protected http: HttpClient) {}

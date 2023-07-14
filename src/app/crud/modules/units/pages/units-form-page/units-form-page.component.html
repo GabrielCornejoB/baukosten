@@ -1,1 +1,39 @@
 <crud-header title="Create new Measurement Unit" [hasAddButton]="false" />
+
+<form
+  [formGroup]="newUnitForm"
+  (ngSubmit)="onSubmit()"
+  class="flex w-full flex-col items-center gap-2"
+>
+  <div class="form-control w-full max-w-md">
+    <label class="label">
+      <span class="label-text"
+        >Type the representation of the measurement unit</span
+      >
+    </label>
+    <input
+      type="text"
+      placeholder="Measurement Unit"
+      formControlName="unit"
+      class="input-bordered input-primary input w-full"
+    />
+    <label class="label">
+      <span
+        *ngIf="
+          newUnitForm.controls['unit'].errors &&
+          newUnitForm.controls['unit'].touched
+        "
+        class="label-text-alt text-error"
+        >Measurement Unit Field is <u>required</u>!</span
+      >
+    </label>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="newUnitForm.invalid"
+    class="btn-primary btn w-full max-w-md"
+  >
+    CREATE
+  </button>
+</form>
