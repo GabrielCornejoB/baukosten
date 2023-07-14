@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Unit } from './unit.interface';
-import { UnitsService } from './units.service';
+import { Unit } from '../unit.interface';
+import { UnitsService } from '../units.service';
 import { map } from 'rxjs';
 
 @Component({
@@ -28,8 +28,10 @@ export class UnitsListPageComponent implements OnInit {
   }
 
   public deleteUnit(id: string): void {
-    this.unitsService
-      .delete(id)
-      .subscribe(() => (this.units = this.units.filter((u) => id !== u.id)));
+    this.unitsService.delete(id).subscribe((deletedSuccessfully) => {
+      return deletedSuccessfully
+        ? (this.units = this.units.filter((u) => id !== u.id))
+        : console.log('Error');
+    });
   }
 }

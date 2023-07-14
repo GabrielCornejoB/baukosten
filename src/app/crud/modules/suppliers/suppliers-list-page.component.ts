@@ -27,8 +27,10 @@ export class SuppliersListPageComponent implements OnInit {
   }
 
   public deleteSupplier(id: string): void {
-    this.suppliersService.delete(id).subscribe(() => {
-      this.suppliers = this.suppliers.filter((s) => id !== s.id);
+    this.suppliersService.delete(id).subscribe((deletedSuccessfully) => {
+      return deletedSuccessfully
+        ? (this.suppliers = this.suppliers.filter((s) => id !== s.id))
+        : console.log('error');
     });
   }
 }

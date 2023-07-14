@@ -49,8 +49,10 @@ export class PrimariesListPageComponent implements OnInit {
   }
 
   public deletePrimary(id: string): void {
-    this.primariesService.delete(id).subscribe(() => {
-      this.primaries = this.primaries.filter((p) => id !== p.id);
+    this.primariesService.delete(id).subscribe((deletedSuccesfully) => {
+      return deletedSuccesfully
+        ? (this.primaries = this.primaries.filter((p) => id !== p.id))
+        : console.log('error');
     });
   }
 }

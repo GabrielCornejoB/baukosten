@@ -37,8 +37,12 @@ export class ClassificationsListPageComponent implements OnInit {
   }
 
   public deleteClassification(id: string) {
-    this.classificationsService.delete(id).subscribe(() => {
-      this.classifications = this.classifications.filter((c) => id !== c.id);
+    this.classificationsService.delete(id).subscribe((deletedSuccesfully) => {
+      return deletedSuccesfully
+        ? (this.classifications = this.classifications.filter(
+            (c) => id !== c.id
+          ))
+        : console.log('error');
     });
   }
 }

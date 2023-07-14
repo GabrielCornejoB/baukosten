@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UnitsListPageComponent } from './units-list-page.component';
+import { UnitsListPageComponent } from './pages/units-list-page.component';
+import { UnitsFormPageComponent } from './pages/units-form-page/units-form-page.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: UnitsListPageComponent,
+      },
+      {
+        path: 'create',
+        component: UnitsFormPageComponent,
       },
       {
         path: '**',

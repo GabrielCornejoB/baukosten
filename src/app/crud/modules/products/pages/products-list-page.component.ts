@@ -41,8 +41,10 @@ export class ProductsListPageComponent implements OnInit {
   }
 
   public deleteProduct(id: string): void {
-    this.productsService.delete(id).subscribe(() => {
-      this.products = this.products.filter((p) => id !== p.id);
+    this.productsService.delete(id).subscribe((deletedSuccesfully) => {
+      return deletedSuccesfully
+        ? (this.products = this.products.filter((p) => id !== p.id))
+        : console.log('error');
     });
   }
 }
