@@ -7,7 +7,7 @@ import { map } from 'rxjs';
   selector: 'suppliers-list-page',
   template: `
     <crud-header title="Suppliers" />
-    <crud-table [tableData]="suppliers" />
+    <crud-table [tableData]="suppliers" (idToDelete)="deleteSupplier($event)" />
   `,
 })
 export class SuppliersListPageComponent implements OnInit {
@@ -24,5 +24,11 @@ export class SuppliersListPageComponent implements OnInit {
       .getAll()
       .pipe(map(({ items }) => items))
       .subscribe((suppliers) => (this.suppliers = suppliers));
+  }
+
+  public deleteSupplier(id: string): void {
+    this.suppliersService.delete(id).subscribe(() => {
+      this.suppliers = this.suppliers.filter((s) => id !== s.id);
+    });
   }
 }
