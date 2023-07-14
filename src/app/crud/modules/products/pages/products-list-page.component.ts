@@ -11,6 +11,7 @@ import { Product } from '../interfaces/product.interface';
       [tableData]="products"
       [hasDetailView]="true"
       detailViewText="Materials"
+      (onDelete)="deleteProduct($event)"
     />
   `,
   styles: [],
@@ -37,5 +38,11 @@ export class ProductsListPageComponent implements OnInit {
         )
       )
       .subscribe((products) => (this.products = products));
+  }
+
+  public deleteProduct(id: string): void {
+    this.productsService.delete(id).subscribe(() => {
+      this.products = this.products.filter((p) => id !== p.id);
+    });
   }
 }
